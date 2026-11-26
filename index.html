@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#07090F">
+<title>Diamond City Shop FF — Madagascar</title>
+<style>
+:root{--b:#1E6BFF;--y:#FFC400;--bg:#07090F;--p:#10141F;--l:#252C3F;--m:#A7B1C7;--ok:#2FD67B;--ko:#FF5A5A}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:#fff;font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+a{color:inherit}.w{max-width:760px;margin:auto;padding:0 16px}
+header{position:sticky;top:0;z-index:5;background:#07090Fee;border-bottom:1px solid var(--l)}
+header .w{display:flex;align-items:center;gap:10px;height:58px;font-weight:900;letter-spacing:.5px}
+header small{margin-left:auto;color:var(--y);font-weight:700}
+.hero{padding:34px 0 22px;text-align:center}
+.hero h1{font-size:clamp(30px,8vw,46px);line-height:1.1;margin:0 0 12px}.hero h1 span{color:var(--y)}
+.hero p{color:var(--m);margin:0 0 20px}
+.btn{display:block;width:100%;border:0;border-radius:14px;padding:15px;font-weight:800;font-size:16px;font-family:inherit;background:var(--y);color:#1a1400;text-align:center;text-decoration:none;cursor:pointer;min-height:50px}
+.btn.blue{background:var(--b);color:#fff}.btn:disabled{opacity:.35;cursor:not-allowed}
+.tags{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:16px;font-size:13px;color:var(--m)}
+.tags span{border:1px solid var(--l);border-radius:99px;padding:5px 12px}
+h2{font-size:24px;margin:34px 0 14px}
+.card{background:var(--p);border:1px solid var(--l);border-radius:18px;padding:18px;margin-bottom:14px}
+.step{display:flex;align-items:center;gap:10px;font-weight:800;font-size:18px;margin-bottom:12px}
+.step i{font-style:normal;background:var(--b);border-radius:50%;width:30px;height:30px;display:grid;place-items:center;font-size:15px}
+.step.off{opacity:.4;pointer-events:none}
+label{display:block;color:var(--m);font-size:14px;margin-bottom:6px}
+input{width:100%;padding:14px;border-radius:12px;border:1px solid #34405c;background:#080b13;color:#fff;font-size:18px;margin-bottom:12px}
+input:focus{outline:2px solid var(--b)}
+.msg{margin-top:10px;font-size:14px;min-height:20px}.msg.ko{color:var(--ko)}.msg.load{color:var(--y)}
+.found{display:none;margin-top:12px;border:1px solid var(--ok);background:#0d2a1c;border-radius:14px;padding:14px}
+.found.show{display:block}.found b.t{color:var(--ok)}
+.who{display:flex;align-items:center;gap:12px;margin:10px 0 12px}
+.av{width:52px;height:52px;border-radius:50%;background:var(--b);display:grid;place-items:center;font-weight:900;font-size:22px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.opt{background:#0b101b;border:2px solid var(--l);border-radius:14px;padding:14px 10px;text-align:center;color:#fff;font:inherit;cursor:pointer;min-height:76px}
+.opt b{display:block;font-size:17px}.opt span{color:var(--y);font-weight:800;font-size:15px}
+.opt.sel{border-color:var(--y);box-shadow:0 0 0 1px var(--y)}
+.pay{padding:12px 8px}.pay b{font-size:14px}
+.recap{color:var(--m);font-size:14px;margin:12px 0 4px}.recap b{color:#fff}
+.hint{font-size:13px;color:var(--m);margin-top:8px;text-align:center}
+.ok{display:none;border:1px solid var(--ok);background:#0d2a1c;border-radius:14px;padding:16px;margin-top:20px;font-weight:700}.ok.show{display:block}
+.steps3{display:grid;gap:10px}.steps3 .card{margin:0;display:flex;gap:12px;align-items:center}.steps3 i{font-style:normal;color:var(--y);font-size:26px;font-weight:900}
+details{background:var(--p);border:1px solid var(--l);border-radius:14px;padding:14px 16px;margin-bottom:10px}
+summary{font-weight:800;cursor:pointer}details p{color:var(--m);margin:10px 0 0}
+.wa{position:fixed;right:14px;bottom:14px;z-index:9;background:#25D366;color:#06260f;font-weight:900;border-radius:99px;padding:14px 18px;text-decoration:none;box-shadow:0 6px 20px #0008}
+footer{text-align:center;color:var(--m);font-size:13px;padding:30px 16px 90px}
+</style>
+</head>
+<body>
+<header><div class="w">
+<svg width="30" height="30" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12l4 6-10 12L2 9z" fill="#1E6BFF"/><path d="M2 9h20M9 3l3 6 3-6M12 9v12" stroke="#07090F" stroke-width="1.2" fill="none"/></svg>
+DIAMOND CITY SHOP <small>FF · Madagascar</small></div></header>
+
+<main class="w">
+<section class="hero">
+<h1>Tes diamants <span>Free Fire</span> en 5 minutes</h1>
+<p>Vérifie ton compte, choisis ton pack, paie avec MVola, Orange Money ou Airtel Money.</p>
+<a class="btn" href="#commander">RECHARGER MAINTENANT</a>
+<div class="tags"><span>MVola</span><span>Orange Money</span><span>Airtel Money</span><span>Carte</span><span>Crypto</span></div>
+</section>
+
+<div class="ok" id="succes" role="status">✅ Paiement réussi, tes diamants arrivent dans 5 minutes sur le compte <span id="succesPseudo">de ton UID</span>.</div>
+
+<section id="commander">
+<h2>Commander</h2>
+
+<div class="card">
+<div class="step"><i>1</i>Vérifie ton compte Free Fire</div>
+<label for="uid">UID Free Fire (9 à 15 chiffres)</label>
+<input id="uid" inputmode="numeric" autocomplete="off" placeholder="Ex : 1234567890" maxlength="20">
+<button class="btn blue" id="btnVerif" type="button">VÉRIFIER MON COMPTE</button>
+<div class="msg" id="msg" role="status" aria-live="polite"></div>
+<div class="found" id="found">
+<b class="t">✅ Joueur trouvé</b>
+<div class="who"><div class="av" id="av">?</div><div><b id="pseudo"></b><div class="msg" id="region" style="margin:0"></div></div></div>
+<button class="btn" id="btnMoi" type="button">C’EST BIEN MOI</button>
+</div>
+</div>
+
+<div class="card step off" id="s2" style="display:block">
+<div class="step"><i>2</i>Choisis ton pack</div>
+<div class="grid" id="packs"></div>
+</div>
+
+<div class="card step off" id="s3" style="display:block">
+<div class="step"><i>3</i>Pays et paiement</div>
+<label for="pays">Pays</label>
+<input id="pays" value="Madagascar" disabled style="font-size:16px">
+<label>Moyen de paiement</label>
+<div class="grid" id="pays-opts"></div>
+<div class="hint">Tu termines le paiement sur la page sécurisée Chariow.</div>
+</div>
+
+<div class="recap" id="recap">Vérifie ton compte pour continuer.</div>
+<button class="btn" id="btnPayer" type="button" disabled>PAYER</button>
+<div class="hint" id="hintPayer">Le bouton PAYER s’active après la vérification de ton UID.</div>
+</section>
+
+<section>
+<h2>Comment ça marche</h2>
+<div class="steps3">
+<div class="card"><i>1</i><div><b>Vérifie ton UID</b><br><span style="color:var(--m)">Ton pseudo s’affiche avant de payer.</span></div></div>
+<div class="card"><i>2</i><div><b>Choisis ton pack</b><br><span style="color:var(--m)">De 110 à 2420 diamants.</span></div></div>
+<div class="card"><i>3</i><div><b>Paie avec MVola</b><br><span style="color:var(--m)">Et reçois tes diamants.</span></div></div>
+</div>
+</section>
+
+<section>
+<h2>Avis clients</h2>
+<!-- À REMPLACER par de vrais avis de tes clients -->
+<div class="card"><b>[Nom du client]</b><br><span style="color:var(--m)">[Son avis — à remplacer par un vrai avis]</span></div>
+<div class="card"><b>[Nom du client]</b><br><span style="color:var(--m)">[Son avis — à remplacer par un vrai avis]</span></div>
+</section>
+
+<section>
+<h2>FAQ</h2>
+<details><summary>Comment trouver mon UID ?</summary><p>Ouvre Free Fire et va sur ton profil : ton UID est affiché sous ton pseudo. Copie-le sans espace.</p></details>
+<details><summary>Combien de temps pour recevoir mes diamants ?</summary><p>En général environ 5 minutes après la confirmation du paiement.</p></details>
+<details><summary>Et si je me trompe d’UID ?</summary><p>C’est pour cela que nous affichons ton pseudo avant le paiement : vérifie qu’il s’agit bien de toi. En cas de doute, contacte-nous sur WhatsApp avant de payer.</p></details>
+</section>
+</main>
+
+<footer>© Diamond City Shop FF — Madagascar</footer>
+<a class="wa" id="wa" href="#" target="_blank" rel="noopener">WhatsApp</a>
+
+<script>
+/* ==========================================================
+   CONFIGURATION — C'EST ICI QUE TU MODIFIES
+   ========================================================== */
+const CONFIG = {
+  // true = vérification SIMULÉE (pour tester le design). Mets false quand ton serveur est en ligne.
+  DEMO_MODE: true,
+
+  // Adresse de TON serveur (fichier api/verifier-joueur.js sur Vercel). C'est lui qui parle à KoraTopUp.
+  // ⚠️ NE METS JAMAIS ta clé KoraTopUp dans ce fichier : tout le monde pourrait la voir et vider ton solde.
+  // Ta clé se colle dans Vercel > Settings > Environment Variables, nom : KORA_API_KEY
+  API_VERIFY_URL: "/api/verifier-joueur",
+
+  // Ton numéro WhatsApp, format international sans + (Madagascar = 261...)
+  WHATSAPP: "261XXXXXXXXX",
+
+  // COLLE ICI tes liens Chariow (un par pack)
+  LIENS_CHARIOW: {
+    110:  "[COLLE_TON_LIEN_CHARIOW_110_DIAMANTS]",
+    231:  "[COLLE_TON_LIEN_CHARIOW_231_DIAMANTS]",
+    583:  "[COLLE_TON_LIEN_CHARIOW_583_DIAMANTS]",
+    1188: "[COLLE_TON_LIEN_CHARIOW_1188_DIAMANTS]",
+    2420: "[COLLE_TON_LIEN_CHARIOW_2420_DIAMANTS]"
+  }
+};
+
+// Packs et prix en Ariary (product_id = nombre de diamants, repris de ta demande)
+const PACKS = [
+  {id:110, nom:"110 Diamants", prix:6000},
+  {id:231, nom:"231 Diamants", prix:11500},
+  {id:583, nom:"583 Diamants", prix:29500},
+  {id:1188, nom:"1188 Diamants", prix:55000},
+  {id:2420, nom:"2420 Diamants", prix:106000}
+];
+const PAIEMENTS = ["MVola","Orange Money","Airtel Money","Carte","Crypto"];
+
+/* ==========================================================
+   LOGIQUE DU SITE
+   ========================================================== */
+const $ = id => document.getElementById(id);
+const fmt = n => n.toLocaleString("fr-FR") + " Ar";
+let etat = {uid:null, pseudo:null, confirme:false, pack:null, paiement:null};
+
+$("wa").href = "https://wa.me/" + CONFIG.WHATSAPP;
+
+// Affichage des packs et des moyens de paiement
+PACKS.forEach(p => {
+  const b = document.createElement("button");
+  b.type = "button"; b.className = "opt";
+  b.innerHTML = "<b>" + p.nom + "</b><span>" + fmt(p.prix) + "</span>";
+  b.onclick = () => { etat.pack = p; marquer("packs", b); majPayer(); };
+  $("packs").appendChild(b);
+});
+PAIEMENTS.forEach(nom => {
+  const b = document.createElement("button");
+  b.type = "button"; b.className = "opt pay";
+  b.innerHTML = "<b>" + nom + "</b>";
+  b.onclick = () => { etat.paiement = nom; marquer("pays-opts", b); majPayer(); };
+  $("pays-opts").appendChild(b);
+});
+function marquer(zone, btn){
+  document.querySelectorAll("#" + zone + " .opt").forEach(x => x.classList.remove("sel"));
+  btn.classList.add("sel");
+}
+
+function message(texte, type){ $("msg").textContent = texte; $("msg").className = "msg " + (type || ""); }
+
+// Règle : uniquement des chiffres, entre 9 et 15
+function uidValide(uid){ return /^[0-9]{9,15}$/.test(uid); }
+
+// Ré-initialise tout si le client change son UID
+$("uid").addEventListener("input", () => {
+  etat.uid = etat.pseudo = null; etat.confirme = false;
+  $("found").classList.remove("show"); message("");
+  majPayer();
+});
+
+// ÉTAPE 1 : vérifier l'UID
+$("btnVerif").onclick = async () => {
+  const uid = $("uid").value;
+  if (!uid) return message("❌ Entre ton UID Free Fire.", "ko");
+  if (!uidValide(uid)) return message("❌ UID invalide : 9 à 15 chiffres, sans espace ni lettre.", "ko");
+  $("btnVerif").disabled = true;
+  message("Vérification en cours...", "load");
+  $("found").classList.remove("show");
+  try {
+    const r = await verifierJoueur(uid);
+    if (r.valid === true){
+      etat.uid = uid; etat.pseudo = r.player_name || ("UID " + uid);
+      $("pseudo").textContent = etat.pseudo;
+      $("av").textContent = etat.pseudo.charAt(0).toUpperCase();
+      $("region").textContent = r.region ? "Région : " + r.region : "";
+      $("found").classList.add("show"); message("");
+    } else if (r.valid === false){
+      message("❌ UID introuvable, vérifie ton ID Free Fire.", "ko");
+    } else {
+      message("⚠️ Vérification momentanément impossible. Réessaie dans un instant.", "ko");
+    }
+  } catch(e){
+    message("⚠️ Vérification momentanément impossible. Réessaie dans un instant.", "ko");
+  }
+  $("btnVerif").disabled = false;
+  majPayer();
+};
+
+// Appelle ton serveur (ou simule en mode DÉMO)
+async function verifierJoueur(uid){
+  if (CONFIG.DEMO_MODE){
+    await new Promise(ok => setTimeout(ok, 1200));
+    if (uid.startsWith("000")) return {valid:false};          // DÉMO : un UID qui commence par 000 est « introuvable »
+    return {valid:true, player_name:"Joueur_" + uid.slice(-4)}; // DÉMO : faux pseudo
+  }
+  const rep = await fetch(CONFIG.API_VERIFY_URL, {
+    method:"POST", headers:{"Content-Type":"application/json"},
+    body: JSON.stringify({game:"Free Fire", player_id:uid})
+  });
+  return await rep.json(); // attendu : {checked, valid, player_name}
+}
+
+$("btnMoi").onclick = () => { etat.confirme = true; majPayer(); $("s2").scrollIntoView({behavior:"smooth"}); };
+
+// Active / désactive les étapes et le bouton PAYER
+function majPayer(){
+  $("s2").classList.toggle("off", !etat.confirme);
+  $("s3").classList.toggle("off", !etat.confirme);
+  const pret = etat.confirme && etat.pack && etat.paiement;
+  $("btnPayer").disabled = !pret;
+  $("recap").innerHTML = etat.confirme
+    ? "Compte : <b>" + esc(etat.pseudo) + "</b>" + (etat.pack ? " · <b>" + etat.pack.nom + "</b> · <b>" + fmt(etat.pack.prix) + "</b>" : "")
+    : "Vérifie ton compte pour continuer.";
+  $("hintPayer").textContent = pret ? "Tu seras redirigé vers la page de paiement sécurisée." :
+    (etat.confirme ? "Choisis un pack et un moyen de paiement." : "Le bouton PAYER s’active après la vérification de ton UID.");
+}
+function esc(t){ const d = document.createElement("div"); d.textContent = t; return d.innerHTML; }
+
+// ÉTAPE 6 : payer → redirection Chariow
+$("btnPayer").onclick = () => {
+  if (!(etat.confirme && etat.pack && etat.paiement)) return;
+  const lien = CONFIG.LIENS_CHARIOW[etat.pack.id];
+  if (!lien || lien.startsWith("[")) return alert("Lien Chariow non configuré pour ce pack.");
+  // On garde le pseudo pour la page de succès (au retour du paiement)
+  try { localStorage.setItem("dcs_commande", JSON.stringify({uid:etat.uid, pseudo:etat.pseudo, pack:etat.pack.id})); } catch(e){}
+  window.location.href = lien;
+};
+
+// PAGE DE SUCCÈS : mets dans Chariow l'adresse de retour = https://TON-SITE/?paiement=ok
+if (new URLSearchParams(location.search).get("paiement") === "ok"){
+  $("succes").classList.add("show");
+  try { const c = JSON.parse(localStorage.getItem("dcs_commande")); if (c && c.pseudo) $("succesPseudo").textContent = c.pseudo; } catch(e){}
+}
+majPayer();
+</script>
+</body>
+</html>
