@@ -7,44 +7,55 @@
 <title>Diamond City Shop FF — Madagascar</title>
 <style>
 :root{--b:#1E6BFF;--y:#FFC400;--bg:#07090F;--p:#10141F;--l:#252C3F;--m:#A7B1C7;--ok:#2FD67B;--ko:#FF5A5A}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:#fff;font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
-a{color:inherit}.w{max-width:760px;margin:auto;padding:0 16px}
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;background:var(--bg);color:#fff;font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding-bottom:96px}
+.w{max-width:760px;margin:auto;padding:0 16px}
 header{position:sticky;top:0;z-index:5;background:#07090Fee;border-bottom:1px solid var(--l)}
 header .w{display:flex;align-items:center;gap:10px;height:58px;font-weight:900;letter-spacing:.5px}
 header small{margin-left:auto;color:var(--y);font-weight:700}
-.hero{padding:34px 0 22px;text-align:center}
-.hero h1{font-size:clamp(30px,8vw,46px);line-height:1.1;margin:0 0 12px}.hero h1 span{color:var(--y)}
-.hero p{color:var(--m);margin:0 0 20px}
-.btn{display:block;width:100%;border:0;border-radius:14px;padding:15px;font-weight:800;font-size:16px;font-family:inherit;background:var(--y);color:#1a1400;text-align:center;text-decoration:none;cursor:pointer;min-height:50px}
-.btn.blue{background:var(--b);color:#fff}.btn:disabled{opacity:.35;cursor:not-allowed}
-.tags{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:16px;font-size:13px;color:var(--m)}
-.tags span{border:1px solid var(--l);border-radius:99px;padding:5px 12px}
-h2{font-size:24px;margin:34px 0 14px}
-.card{background:var(--p);border:1px solid var(--l);border-radius:18px;padding:18px;margin-bottom:14px}
-.step{display:flex;align-items:center;gap:10px;font-weight:800;font-size:18px;margin-bottom:12px}
-.step i{font-style:normal;background:var(--b);border-radius:50%;width:30px;height:30px;display:grid;place-items:center;font-size:15px}
-.step.off{opacity:.4;pointer-events:none}
+.card{background:var(--p);border:1px solid var(--l);border-radius:18px;padding:16px;margin-top:14px}
+.top{display:flex;gap:14px;align-items:center}
+.ico{width:76px;height:76px;border-radius:16px;background:#0b101b;border:1px solid var(--l);display:grid;place-items:center;flex:none}
+.top h1{margin:0 0 6px;font-size:28px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}.chips span{font-size:12px;color:var(--m);border:1px solid var(--l);border-radius:99px;padding:3px 10px}
+.warn{background:#2a2108;border:1px solid #7a5d12;color:#ffe9a8;border-radius:14px;padding:12px 14px;margin-top:14px;font-size:14px}
+.srv{display:flex;gap:10px;margin-top:14px}
+.chip{flex:1;border:2px solid var(--l);background:var(--p);color:#fff;border-radius:14px;padding:12px;font:inherit;font-weight:800;text-align:center}
+.chip.sel{border-color:var(--b);background:#0e1c3d}.chip:disabled{opacity:.45}
+.tabs{display:flex;gap:18px;border-bottom:1px solid var(--l);margin-top:18px}
+.tab{background:none;border:0;border-bottom:3px solid transparent;color:var(--m);font:inherit;font-weight:800;padding:10px 2px;cursor:pointer}
+.tab.on{color:#fff;border-color:var(--y)}
+h2{font-size:18px;margin:0 0 12px}
 label{display:block;color:var(--m);font-size:14px;margin-bottom:6px}
-input{width:100%;padding:14px;border-radius:12px;border:1px solid #34405c;background:#080b13;color:#fff;font-size:18px;margin-bottom:12px}
+input{width:100%;padding:14px;border-radius:12px;border:1px solid #34405c;background:#080b13;color:#fff;font-size:18px}
 input:focus{outline:2px solid var(--b)}
-.msg{margin-top:10px;font-size:14px;min-height:20px}.msg.ko{color:var(--ko)}.msg.load{color:var(--y)}
-.found{display:none;margin-top:12px;border:1px solid var(--ok);background:#0d2a1c;border-radius:14px;padding:14px}
-.found.show{display:block}.found b.t{color:var(--ok)}
-.who{display:flex;align-items:center;gap:12px;margin:10px 0 12px}
-.av{width:52px;height:52px;border-radius:50%;background:var(--b);display:grid;place-items:center;font-weight:900;font-size:22px}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.opt{background:#0b101b;border:2px solid var(--l);border-radius:14px;padding:14px 10px;text-align:center;color:#fff;font:inherit;cursor:pointer;min-height:76px}
-.opt b{display:block;font-size:17px}.opt span{color:var(--y);font-weight:800;font-size:15px}
-.opt.sel{border-color:var(--y);box-shadow:0 0 0 1px var(--y)}
-.pay{padding:12px 8px}.pay b{font-size:14px}
-.recap{color:var(--m);font-size:14px;margin:12px 0 4px}.recap b{color:#fff}
-.hint{font-size:13px;color:var(--m);margin-top:8px;text-align:center}
-.ok{display:none;border:1px solid var(--ok);background:#0d2a1c;border-radius:14px;padding:16px;margin-top:20px;font-weight:700}.ok.show{display:block}
-.steps3{display:grid;gap:10px}.steps3 .card{margin:0;display:flex;gap:12px;align-items:center}.steps3 i{font-style:normal;color:var(--y);font-size:26px;font-weight:900}
-details{background:var(--p);border:1px solid var(--l);border-radius:14px;padding:14px 16px;margin-bottom:10px}
+.msg{margin-top:8px;font-size:14px;min-height:20px;color:var(--m)}.msg.ko{color:var(--ko)}.msg.load{color:var(--y)}
+.found{margin-top:8px;border:1px solid var(--ok);background:#0d2a1c;border-radius:14px;padding:12px 14px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.found b{color:var(--ok)}
+.rec{margin-top:12px}.rec small{color:var(--m);letter-spacing:1px;font-size:12px}
+.rc{display:flex;align-items:center;gap:8px;margin-top:8px}
+.rc button.use{flex:1;text-align:left;background:#0b101b;border:1px solid var(--l);border-radius:12px;color:#fff;padding:10px 12px;font:inherit;font-size:14px;cursor:pointer;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rc button.x{background:none;border:0;color:var(--m);font-size:20px;padding:6px 10px;cursor:pointer}
+.packs{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.pk{background:#0b101b;border:2px solid var(--l);border-radius:14px;padding:12px 6px;color:#fff;font:inherit;text-align:center;cursor:pointer;min-height:112px;display:flex;flex-direction:column;align-items:center;gap:4px;position:relative}
+.pk b{font-size:15px;line-height:1.2}.pk span{color:var(--y);font-weight:800;font-size:14px}
+.pk em{position:absolute;top:-9px;background:var(--y);color:#1a1400;font-style:normal;font-weight:900;font-size:10px;border-radius:99px;padding:2px 8px}
+.pk.sel{border-color:var(--y);box-shadow:0 0 0 1px var(--y)}
+.pay{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pay .chip{padding:12px 6px;font-size:14px}.pay .chip.sel{border-color:var(--y);background:#241d05}
+.off{opacity:.4;pointer-events:none}
+.recap div{display:flex;justify-content:space-between;gap:12px;padding:6px 0;color:var(--m)}.recap b{color:#fff;text-align:right;word-break:break-all}
+.recap .tot{border-top:1px dashed var(--l);margin-top:6px;padding-top:12px;font-size:18px}.recap .tot b{color:var(--y);font-size:22px}
+.ok{border:1px solid var(--ok);background:#0d2a1c;border-radius:14px;padding:14px;margin-top:14px;font-weight:700}
+details{background:var(--p);border:1px solid var(--l);border-radius:14px;padding:14px 16px;margin-top:10px}
 summary{font-weight:800;cursor:pointer}details p{color:var(--m);margin:10px 0 0}
-.wa{position:fixed;right:14px;bottom:14px;z-index:9;background:#25D366;color:#06260f;font-weight:900;border-radius:99px;padding:14px 18px;text-decoration:none;box-shadow:0 6px 20px #0008}
-footer{text-align:center;color:var(--m);font-size:13px;padding:30px 16px 90px}
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:8;background:#0b0f1a;border-top:1px solid var(--l);padding:10px 16px}
+.bar .w{display:flex;align-items:center;gap:12px;padding:0}
+.bar .t{flex:1;min-width:0}.bar small{display:block;color:var(--m);font-size:12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.bar b{font-size:18px}
+.go{border:0;border-radius:14px;background:var(--y);color:#1a1400;font:inherit;font-weight:900;padding:14px 26px;min-height:50px;cursor:pointer}
+.go:disabled{opacity:.35;cursor:not-allowed}
+.wa{position:fixed;right:14px;bottom:92px;z-index:9;background:#25D366;color:#06260f;font-weight:900;border-radius:99px;padding:12px 16px;text-decoration:none;box-shadow:0 6px 20px #0008}
+footer{text-align:center;color:var(--m);font-size:13px;padding:26px 16px}
 </style>
 </head>
 <body>
@@ -53,110 +64,105 @@ footer{text-align:center;color:var(--m);font-size:13px;padding:30px 16px 90px}
 DIAMOND CITY SHOP <small>FF · Madagascar</small></div></header>
 
 <main class="w">
-<section class="hero">
-<h1>Tes diamants <span>Free Fire</span> en 5 minutes</h1>
-<p>Vérifie ton compte, choisis ton pack, paie avec MVola, Orange Money ou Airtel Money.</p>
-<a class="btn" href="#commander">RECHARGER MAINTENANT</a>
-<div class="tags"><span>MVola</span><span>Orange Money</span><span>Airtel Money</span><span>Carte</span><span>Crypto</span></div>
-</section>
+<div class="ok" id="succes" role="status" hidden>✅ Paiement réussi, tes diamants arrivent dans 5 minutes sur le compte <span id="succesPseudo">de ton UID</span>.</div>
 
-<div class="ok" id="succes" role="status">✅ Paiement réussi, tes diamants arrivent dans 5 minutes sur le compte <span id="succesPseudo">de ton UID</span>.</div>
+<div class="card top">
+<div class="ico"><img src="data:image/jpeg;base64,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" alt="Free Fire" width="76" height="76" style="width:76px;height:76px;border-radius:16px;object-fit:cover" onerror="this.hidden=true;document.getElementById('icoFallback').hidden=false"><span id="icoFallback" hidden><svg width="44" height="44" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12l4 6-10 12L2 9z" fill="#1E6BFF"/><path d="M2 9h20M9 3l3 6 3-6M12 9v12" stroke="#10141F" stroke-width="1.2" fill="none"/></svg></span></div>
+<div><h1>Free Fire</h1><div class="chips"><span>⚡ Rapide</span><span>🛡️ Sécurisé</span><span>💬 Support WhatsApp</span></div></div>
+</div>
 
-<section id="commander">
-<h2>Commander</h2>
+<div class="warn">⚠️ Choisis le <b>serveur de ton compte</b>, sinon la recharge échoue. En Afrique, c’est <b>MENA</b>.</div>
+<div class="srv"><button class="chip sel" type="button">🌍 Afrique (MENA)</button><button class="chip" type="button" disabled>🇪🇺 Europe · bientôt</button></div>
 
+<div class="tabs"><button class="tab on" id="tabD" type="button">💎 Diamants</button><button class="tab" id="tabP" type="button">🎟️ Pass &amp; abonnements</button></div>
+
+<div id="pD">
 <div class="card">
-<div class="step"><i>1</i>Vérifie ton compte Free Fire</div>
-<label for="uid">UID Free Fire (9 à 15 chiffres)</label>
+<h2>1. Vérifie ton UID joueur</h2>
+<label for="uid">ID Free Fire (9 à 15 chiffres)</label>
 <input id="uid" inputmode="numeric" autocomplete="off" placeholder="Ex : 1234567890" maxlength="20">
-<button class="btn blue" id="btnVerif" type="button">VÉRIFIER MON COMPTE</button>
+<button class="go" id="btnVerif" type="button" style="width:100%;margin-top:10px;background:var(--b);color:#fff">VÉRIFIER MON UID JOUEUR</button>
 <div class="msg" id="msg" role="status" aria-live="polite"></div>
-<div class="found" id="found">
-<b class="t">✅ Joueur trouvé</b>
-<div class="who"><div class="av" id="av">?</div><div><b id="pseudo"></b><div class="msg" id="region" style="margin:0"></div></div></div>
-<button class="btn" id="btnMoi" type="button">C’EST BIEN MOI</button>
-</div>
+<div class="found" id="found" hidden><span>✅</span><b>Joueur trouvé :</b><span id="pseudo"></span></div>
+<div class="rec" id="recBox" hidden><small>📌 TES COMPTES RÉCENTS</small><div id="recents"></div></div>
 </div>
 
-<div class="card step off" id="s2" style="display:block">
-<div class="step"><i>2</i>Choisis ton pack</div>
-<div class="grid" id="packs"></div>
+<div class="card off" id="s2"><h2>2. Choisis ta recharge</h2><div class="packs" id="packs"></div></div>
+
+<div class="card recap"><h2>Récapitulatif de ta commande</h2>
+<div><span>Serveur</span><b id="rServeur">Afrique (MENA)</b></div>
+<div><span>Recharge</span><b id="rRecharge">—</b></div>
+<div><span>ID</span><b id="rId">—</b></div>
+<div><span>Pseudo</span><b id="rPseudo">—</b></div>
+<div><span>Paiement</span><b id="rPay">—</b></div>
+<div class="tot"><span>Total</span><b id="rTotal">—</b></div>
 </div>
 
-<div class="card step off" id="s3" style="display:block">
-<div class="step"><i>3</i>Pays et paiement</div>
-<label for="pays">Pays</label>
-<input id="pays" value="Madagascar" disabled style="font-size:16px">
-<label>Moyen de paiement</label>
-<div class="grid" id="pays-opts"></div>
-<div class="hint">Tu termines le paiement sur la page sécurisée Chariow.</div>
+<div class="card off" id="s3"><h2>3. Choisis ton moyen de paiement</h2><div class="pay" id="pay"></div>
+<div class="msg" style="text-align:center">Tu termines le paiement sur la page sécurisée Chariow.</div></div>
+
 </div>
 
-<div class="recap" id="recap">Vérifie ton compte pour continuer.</div>
-<button class="btn" id="btnPayer" type="button" disabled>PAYER</button>
-<div class="hint" id="hintPayer">Le bouton PAYER s’active après la vérification de ton UID.</div>
-</section>
+<div id="pP" class="card" hidden><h2>Pass &amp; abonnements</h2><p class="msg">Bientôt disponible.</p></div>
 
-<section>
-<h2>Comment ça marche</h2>
-<div class="steps3">
-<div class="card"><i>1</i><div><b>Vérifie ton UID</b><br><span style="color:var(--m)">Ton pseudo s’affiche avant de payer.</span></div></div>
-<div class="card"><i>2</i><div><b>Choisis ton pack</b><br><span style="color:var(--m)">De 110 à 2420 diamants.</span></div></div>
-<div class="card"><i>3</i><div><b>Paie avec MVola</b><br><span style="color:var(--m)">Et reçois tes diamants.</span></div></div>
-</div>
-</section>
+<h2 style="margin-top:30px">Comment ça marche</h2>
+<div class="card" style="margin-top:0">1. Entre ton ID, ton pseudo s’affiche.<br>2. Choisis ta recharge.<br>3. Paie en Mobile Money et reçois tes diamants.</div>
 
-<section>
-<h2>Avis clients</h2>
-<!-- À REMPLACER par de vrais avis de tes clients -->
-<div class="card"><b>[Nom du client]</b><br><span style="color:var(--m)">[Son avis — à remplacer par un vrai avis]</span></div>
-<div class="card"><b>[Nom du client]</b><br><span style="color:var(--m)">[Son avis — à remplacer par un vrai avis]</span></div>
-</section>
-
-<section>
-<h2>FAQ</h2>
+<h2 style="margin-top:26px">FAQ</h2>
 <details><summary>Comment trouver mon UID ?</summary><p>Ouvre Free Fire et va sur ton profil : ton UID est affiché sous ton pseudo. Copie-le sans espace.</p></details>
 <details><summary>Combien de temps pour recevoir mes diamants ?</summary><p>En général environ 5 minutes après la confirmation du paiement.</p></details>
-<details><summary>Et si je me trompe d’UID ?</summary><p>C’est pour cela que nous affichons ton pseudo avant le paiement : vérifie qu’il s’agit bien de toi. En cas de doute, contacte-nous sur WhatsApp avant de payer.</p></details>
-</section>
+<details><summary>Et si je me trompe d’UID ?</summary><p>C’est pour cela que ton pseudo s’affiche avant le paiement : vérifie qu’il s’agit bien de toi. En cas de doute, contacte-nous sur WhatsApp avant de payer.</p></details>
 </main>
 
 <footer>© Diamond City Shop FF — Madagascar</footer>
-<a class="wa" id="wa" href="#" target="_blank" rel="noopener">WhatsApp</a>
+<a class="wa" id="wa" href="#" target="_blank" rel="noopener">💬 WhatsApp</a>
+
+<div class="bar"><div class="w">
+<div class="t"><small id="aide">Vérifie ton UID joueur pour continuer.</small><b id="barTotal">Choisis ta recharge</b></div>
+<button class="go" id="btnPayer" type="button" disabled>PAYER</button>
+</div></div>
 
 <script>
 /* ==========================================================
    CONFIGURATION — C'EST ICI QUE TU MODIFIES
    ========================================================== */
 const CONFIG = {
-  // true = vérification SIMULÉE (pour tester le design). Mets false quand ton serveur est en ligne.
+  // false = vraie vérification du pseudo via ton serveur (api/verifier-joueur.js). true = simulation.
   DEMO_MODE: false,
-
-  // Adresse de TON serveur (fichier api/verifier-joueur.js sur Vercel). C'est lui qui parle à KoraTopUp.
-  // ⚠️ NE METS JAMAIS ta clé KoraTopUp dans ce fichier : tout le monde pourrait la voir et vider ton solde.
-  // Ta clé se colle dans Vercel > Settings > Environment Variables, nom : KORA_API_KEY
+  // ⚠️ NE METS JAMAIS ta clé Kora dans ce fichier : elle est dans Vercel (KORA_API_KEY).
   API_VERIFY_URL: "/api/verifier-joueur",
-
   // Ton numéro WhatsApp, format international sans + (Madagascar = 261...)
   WHATSAPP: "261XXXXXXXXX",
-
   // COLLE ICI tes liens Chariow (un par pack)
   LIENS_CHARIOW: {
     110:  "[COLLE_TON_LIEN_CHARIOW_110_DIAMANTS]",
     231:  "[COLLE_TON_LIEN_CHARIOW_231_DIAMANTS]",
+    341:  "[COLLE_TON_LIEN_CHARIOW_341_DIAMANTS]",
+    462:  "[COLLE_TON_LIEN_CHARIOW_462_DIAMANTS]",
     583:  "[COLLE_TON_LIEN_CHARIOW_583_DIAMANTS]",
+    693:  "[COLLE_TON_LIEN_CHARIOW_693_DIAMANTS]",
+    814:  "[COLLE_TON_LIEN_CHARIOW_814_DIAMANTS]",
+    1045: "[COLLE_TON_LIEN_CHARIOW_1045_DIAMANTS]",
     1188: "[COLLE_TON_LIEN_CHARIOW_1188_DIAMANTS]",
+    1771: "[COLLE_TON_LIEN_CHARIOW_1771_DIAMANTS]",
     2420: "[COLLE_TON_LIEN_CHARIOW_2420_DIAMANTS]"
   }
 };
 
-// Packs et prix en Ariary (product_id = nombre de diamants, repris de ta demande)
+// Prix officiels en Ariary (Ar). Le client ne voit que le nom du pack et le prix ; la découpe se fait côté serveur.
+// Tu peux ajouter une étiquette : badge:"POPULAIRE" (seulement si c'est vrai).
 const PACKS = [
-  {id:110, nom:"110 Diamants", prix:6000},
-  {id:231, nom:"231 Diamants", prix:11500},
-  {id:583, nom:"583 Diamants", prix:29500},
-  {id:1188, nom:"1188 Diamants", prix:55000},
-  {id:2420, nom:"2420 Diamants", prix:106000}
+  {id:110, prix:6000},
+  {id:231, prix:13000},
+  {id:341, prix:18000},
+  {id:462, prix:24000},
+  {id:583, prix:28000},
+  {id:693, prix:33000},
+  {id:814, prix:39000},
+  {id:1045, prix:54000},
+  {id:1188, prix:58000},
+  {id:1771, prix:79000},
+  {id:2420, prix:103000}
 ];
 const PAIEMENTS = ["MVola","Orange Money","Airtel Money","Carte","Crypto"];
 
@@ -165,116 +171,121 @@ const PAIEMENTS = ["MVola","Orange Money","Airtel Money","Carte","Crypto"];
    ========================================================== */
 const $ = id => document.getElementById(id);
 const fmt = n => n.toLocaleString("fr-FR") + " Ar";
-let etat = {uid:null, pseudo:null, confirme:false, pack:null, paiement:null};
-
+let etat = {uid:null, pseudo:null, ok:false, pack:null, paiement:null}, seq = 0, timer = null;
 $("wa").href = "https://wa.me/" + CONFIG.WHATSAPP;
 
-// Affichage des packs et des moyens de paiement
 PACKS.forEach(p => {
   const b = document.createElement("button");
-  b.type = "button"; b.className = "opt";
-  b.innerHTML = "<b>" + p.nom + "</b><span>" + fmt(p.prix) + "</span>";
-  b.onclick = () => { etat.pack = p; marquer("packs", b); majPayer(); };
+  b.type = "button"; b.className = "pk";
+  b.innerHTML = (p.badge ? "<em>" + p.badge + "</em>" : "") + '<svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12l4 6-10 12L2 9z" fill="#1E6BFF"/></svg><b>' + p.id + " Diamants</b><span>" + fmt(p.prix) + "</span>";
+  b.onclick = () => { etat.pack = p; document.querySelectorAll(".pk").forEach(x => x.classList.remove("sel")); b.classList.add("sel"); maj(); };
   $("packs").appendChild(b);
 });
 PAIEMENTS.forEach(nom => {
   const b = document.createElement("button");
-  b.type = "button"; b.className = "opt pay";
-  b.innerHTML = "<b>" + nom + "</b>";
-  b.onclick = () => { etat.paiement = nom; marquer("pays-opts", b); majPayer(); };
-  $("pays-opts").appendChild(b);
+  b.type = "button"; b.className = "chip"; b.textContent = nom;
+  b.onclick = () => { etat.paiement = nom; document.querySelectorAll("#pay .chip").forEach(x => x.classList.remove("sel")); b.classList.add("sel"); maj(); };
+  $("pay").appendChild(b);
 });
-function marquer(zone, btn){
-  document.querySelectorAll("#" + zone + " .opt").forEach(x => x.classList.remove("sel"));
-  btn.classList.add("sel");
+
+// Onglets Diamants / Pass
+$("tabD").onclick = () => { $("tabD").classList.add("on"); $("tabP").classList.remove("on"); $("pD").hidden = false; $("pP").hidden = true; };
+$("tabP").onclick = () => { $("tabP").classList.add("on"); $("tabD").classList.remove("on"); $("pP").hidden = false; $("pD").hidden = true; };
+
+function msg(t, type){ $("msg").textContent = t; $("msg").className = "msg " + (type || ""); }
+
+// Comptes récents (gardés seulement sur le téléphone du client)
+function lireComptes(){ try { const l = JSON.parse(localStorage.getItem("dcs_comptes")); return Array.isArray(l) ? l.filter(c => c && typeof c.uid === "string" && typeof c.pseudo === "string") : []; } catch(e){ return []; } }
+function ecrireComptes(l){ try { localStorage.setItem("dcs_comptes", JSON.stringify(l.slice(0,3))); } catch(e){} }
+function rendreComptes(){
+  const z = $("recents"), l = lireComptes(); z.textContent = ""; $("recBox").hidden = !l.length;
+  l.forEach(c => {
+    const d = document.createElement("div"); d.className = "rc";
+    const u = document.createElement("button"); u.type = "button"; u.className = "use"; u.textContent = "🎮 " + c.uid + " — " + c.pseudo;
+    u.onclick = () => { $("uid").value = c.uid; $("uid").dispatchEvent(new Event("input")); verifier(); };
+    const x = document.createElement("button"); x.type = "button"; x.className = "x"; x.textContent = "×"; x.setAttribute("aria-label", "Retirer ce compte");
+    x.onclick = () => { ecrireComptes(lireComptes().filter(k => k.uid !== c.uid)); rendreComptes(); };
+    d.append(u, x); z.appendChild(d);
+  });
 }
+rendreComptes();
 
-function message(texte, type){ $("msg").textContent = texte; $("msg").className = "msg " + (type || ""); }
-
-// Règle : uniquement des chiffres, entre 9 et 15
-function uidValide(uid){ return /^[0-9]{9,15}$/.test(uid); }
-
-// Ré-initialise tout si le client change son UID
+// Saisie de l'UID (la vérification se lance avec le bouton)
 $("uid").addEventListener("input", () => {
-  etat.uid = etat.pseudo = null; etat.confirme = false;
-  $("found").classList.remove("show"); message("");
-  majPayer();
+  etat.uid = etat.pseudo = null; etat.ok = false; $("found").hidden = true; clearTimeout(timer); seq++;
+  const v = $("uid").value;
+  if (!v) { msg(""); maj(); return; }
+  if (/[^0-9]/.test(v)) { msg("❌ UID invalide : chiffres seulement, sans espace ni lettre.", "ko"); maj(); return; }
+  if (v.length < 9) { msg("Continue de saisir ton UID (9 à 15 chiffres)…"); maj(); return; }
+  if (v.length > 15) { msg("❌ UID trop long : 15 chiffres maximum.", "ko"); maj(); return; }
+  msg("Appuie sur « Vérifier mon UID joueur »."); maj();
 });
 
-// ÉTAPE 1 : vérifier l'UID
-$("btnVerif").onclick = async () => {
-  const uid = $("uid").value;
-  if (!uid) return message("❌ Entre ton UID Free Fire.", "ko");
-  if (!uidValide(uid)) return message("❌ UID invalide : 9 à 15 chiffres, sans espace ni lettre.", "ko");
-  $("btnVerif").disabled = true;
-  message("Vérification en cours...", "load");
-  $("found").classList.remove("show");
+$("btnVerif").onclick = () => {
+  const v = $("uid").value.trim();
+  if (!v) return msg("❌ Entre ton UID Free Fire.", "ko");
+  if (!/^[0-9]{9,15}$/.test(v)) return msg("❌ UID invalide : 9 à 15 chiffres, sans espace ni lettre.", "ko");
+  verifier();
+};
+$("uid").addEventListener("keydown", e => { if (e.key === "Enter") $("btnVerif").click(); });
+
+async function verifier(){
+  const uid = $("uid").value.trim();
+  if (!/^[0-9]{9,15}$/.test(uid)) return;
+  const mine = ++seq; msg("Vérification en cours...", "load"); $("found").hidden = true;
   try {
     const r = await verifierJoueur(uid);
+    if (mine !== seq) return;
     if (r.valid === true){
-      etat.uid = uid; etat.pseudo = r.player_name || ("UID " + uid);
-      $("pseudo").textContent = etat.pseudo;
-      $("av").textContent = etat.pseudo.charAt(0).toUpperCase();
-      $("region").textContent = r.region ? "Région : " + r.region : "";
-      $("found").classList.add("show"); message("");
+      etat.uid = uid; etat.pseudo = r.player_name || ("UID " + uid); etat.ok = true;
+      $("pseudo").textContent = etat.pseudo; $("found").hidden = false; msg("");
+      ecrireComptes([{uid:uid, pseudo:etat.pseudo}].concat(lireComptes().filter(k => k.uid !== uid))); rendreComptes();
     } else if (r.valid === false){
-      message("❌ UID introuvable, vérifie ton ID Free Fire.", "ko");
+      msg("❌ UID introuvable, vérifie ton ID Free Fire.", "ko");
     } else {
-      message("⚠️ Vérification momentanément impossible. Réessaie dans un instant.", "ko");
+      msg("⚠️ Vérification momentanément impossible. Réessaie dans un instant.", "ko");
     }
-  } catch(e){
-    message("⚠️ Vérification momentanément impossible. Réessaie dans un instant.", "ko");
-  }
-  $("btnVerif").disabled = false;
-  majPayer();
-};
+  } catch(e){ if (mine === seq) msg("⚠️ Vérification momentanément impossible. Réessaie dans un instant.", "ko"); }
+  maj();
+}
 
-// Appelle ton serveur (ou simule en mode DÉMO)
 async function verifierJoueur(uid){
   if (CONFIG.DEMO_MODE){
     await new Promise(ok => setTimeout(ok, 1200));
-    if (uid.startsWith("000")) return {valid:false};          // DÉMO : un UID qui commence par 000 est « introuvable »
-    return {valid:true, player_name:"Joueur_" + uid.slice(-4)}; // DÉMO : faux pseudo
+    if (uid.startsWith("000")) return {valid:false};
+    return {valid:true, player_name:"Joueur_" + uid.slice(-4)};
   }
-  const rep = await fetch(CONFIG.API_VERIFY_URL, {
-    method:"POST", headers:{"Content-Type":"application/json"},
-    body: JSON.stringify({game:"Free Fire", player_id:uid})
-  });
-  return await rep.json(); // attendu : {checked, valid, player_name}
+  const rep = await fetch(CONFIG.API_VERIFY_URL, {method:"POST", headers:{"Content-Type":"application/json"}, body: JSON.stringify({game:"Free Fire", player_id:uid})});
+  return await rep.json();
 }
 
-$("btnMoi").onclick = () => { etat.confirme = true; majPayer(); $("s2").scrollIntoView({behavior:"smooth"}); };
-
-// Active / désactive les étapes et le bouton PAYER
-function majPayer(){
-  $("s2").classList.toggle("off", !etat.confirme);
-  $("s3").classList.toggle("off", !etat.confirme);
-  const pret = etat.confirme && etat.pack && etat.paiement;
+// Met à jour le récapitulatif, la barre du bas et le bouton PAYER
+function maj(){
+  const pret = etat.ok && etat.pack && etat.paiement;
+  $("s2").classList.toggle("off", !etat.ok); $("s3").classList.toggle("off", !etat.ok);
+  $("rRecharge").textContent = etat.pack ? etat.pack.id + " Diamants" : "—";
+  $("rId").textContent = etat.uid || "—"; $("rPseudo").textContent = etat.pseudo || "—";
+  $("rTotal").textContent = etat.pack ? fmt(etat.pack.prix) : "—"; $("rPay").textContent = etat.paiement || "—";
+  $("barTotal").textContent = etat.pack ? fmt(etat.pack.prix) : "Choisis ta recharge";
   $("btnPayer").disabled = !pret;
-  $("recap").innerHTML = etat.confirme
-    ? "Compte : <b>" + esc(etat.pseudo) + "</b>" + (etat.pack ? " · <b>" + etat.pack.nom + "</b> · <b>" + fmt(etat.pack.prix) + "</b>" : "")
-    : "Vérifie ton compte pour continuer.";
-  $("hintPayer").textContent = pret ? "Tu seras redirigé vers la page de paiement sécurisée." :
-    (etat.confirme ? "Choisis un pack et un moyen de paiement." : "Le bouton PAYER s’active après la vérification de ton UID.");
+  $("aide").textContent = pret ? "Tu seras redirigé vers le paiement sécurisé." : !etat.ok ? "Vérifie ton UID joueur pour continuer." : !etat.pack ? "Choisis ta recharge." : "Choisis un moyen de paiement.";
 }
-function esc(t){ const d = document.createElement("div"); d.textContent = t; return d.innerHTML; }
 
-// ÉTAPE 6 : payer → redirection Chariow
+// Payer → redirection Chariow
 $("btnPayer").onclick = () => {
-  if (!(etat.confirme && etat.pack && etat.paiement)) return;
+  if (!(etat.ok && etat.pack && etat.paiement)) return;
   const lien = CONFIG.LIENS_CHARIOW[etat.pack.id];
   if (!lien || lien.startsWith("[")) return alert("Lien Chariow non configuré pour ce pack.");
-  // On garde le pseudo pour la page de succès (au retour du paiement)
   try { localStorage.setItem("dcs_commande", JSON.stringify({uid:etat.uid, pseudo:etat.pseudo, pack:etat.pack.id})); } catch(e){}
   window.location.href = lien;
 };
 
-// PAGE DE SUCCÈS : mets dans Chariow l'adresse de retour = https://TON-SITE/?paiement=ok
+// Page de succès : adresse de retour Chariow = https://TON-SITE/?paiement=ok
 if (new URLSearchParams(location.search).get("paiement") === "ok"){
-  $("succes").classList.add("show");
-  try { const c = JSON.parse(localStorage.getItem("dcs_commande")); if (c && c.pseudo) $("succesPseudo").textContent = c.pseudo; } catch(e){}
+  $("succes").hidden = false;
+  try { const c = JSON.parse(localStorage.getItem("dcs_commande")); if (c && typeof c.pseudo === "string") $("succesPseudo").textContent = c.pseudo; } catch(e){}
 }
-majPayer();
+maj();
 </script>
 </body>
 </html>
